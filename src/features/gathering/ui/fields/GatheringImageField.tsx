@@ -1,15 +1,29 @@
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import type { CreateGatheringFormValues } from '@/features/gathering/model';
+import type { CreateGatheringPayload } from '@/entities/gathering/model/schema';
 import { FieldError, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
 interface GatheringImageFieldProps {
-  setValue: UseFormSetValue<CreateGatheringFormValues>;
+  setValue: UseFormSetValue<CreateGatheringPayload>;
   error?: FieldError;
-  watch: UseFormWatch<CreateGatheringFormValues>;
+  watch: UseFormWatch<CreateGatheringPayload>;
 }
 
 export const GatheringImageField = ({ setValue, error, watch }: GatheringImageFieldProps) => {
   const t = useTranslations('pages.gatherings.create');
+  const [fileName, setFileName] = useState('');
+
+  const handleImageChange = (file: File | null) => {
+    if (!file) {
+      setValue('image', undefined);
+      setFileName('');
+      return;
+    }
+
+    setFileName(file.name);
+    setValue('image', file);
+  };
+
   return (
     <div>
       <label className="mb-2 block text-sm font-medium">{t('form.image')}</label>
@@ -20,7 +34,7 @@ export const GatheringImageField = ({ setValue, error, watch }: GatheringImageFi
           }
         >
           <span className={watch('image') ? 'text-gray-800' : 'text-gray-400'}>
-            {watch('image')?.name || t('form.imagePlaceholder')}
+            {fileName || t('form.imagePlaceholder')}
           </span>
         </div>
         <button
@@ -35,7 +49,7 @@ export const GatheringImageField = ({ setValue, error, watch }: GatheringImageFi
           accept="image/*"
           id="gathering-image-upload"
           className="hidden"
-          onChange={(e) => setValue('image', e.target.files?.[0])}
+          onChange={(e) => handleImageChange(e.target.files?.[0] || null)}
         />
       </div>
       {error && <p className="mt-1 text-xs text-red-500">{t(error.message ?? '')}</p>}

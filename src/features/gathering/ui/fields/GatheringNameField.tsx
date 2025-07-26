@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import type { CreateGatheringFormValues } from '@/features/gathering/model';
+import type { CreateGatheringPayload } from '@/entities/gathering/model/schema';
 import { Input } from '@/shared/ui/input';
 import { FieldError, UseFormRegister } from 'react-hook-form';
 
 interface GatheringNameFieldProps {
-  register: UseFormRegister<CreateGatheringFormValues>;
+  register: UseFormRegister<CreateGatheringPayload>;
   error?: FieldError;
 }
 

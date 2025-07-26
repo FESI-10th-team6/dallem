@@ -14,13 +14,18 @@ export const DateFilter = () => {
   const locale = useLocale();
 
   const selectedDateStr = searchParams.get('date');
-  const selectedDate = selectedDateStr ? new Date(selectedDateStr) : undefined;
+  const selectedDate = selectedDateStr ? new Date(selectedDateStr + 'T00:00:00') : undefined;
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [tempDate, setTempDate] = useState<Date | undefined>(selectedDate);
 
   const handleApplyDate = () => {
     if (tempDate) {
-      const yyyyMMdd = tempDate.toISOString().slice(0, 10);
+      // 로컬 시간대 기준으로 YYYY-MM-DD 형식 생성
+      const year = tempDate.getFullYear();
+      const month = String(tempDate.getMonth() + 1).padStart(2, '0');
+      const day = String(tempDate.getDate()).padStart(2, '0');
+      const yyyyMMdd = `${year}-${month}-${day}`;
+
       const params = new URLSearchParams(searchParams);
       params.set('date', yyyyMMdd);
       router.push({
@@ -98,7 +103,15 @@ export const DateFilter = () => {
       {calendarOpen && (
         <Calendar
           value={tempDate}
-          onChange={setTempDate}
+          onChange={(date) => {
+            if (date) {
+              // 로컬 시간대 기준으로 날짜 생성
+              const localDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+              setTempDate(localDate);
+            } else {
+              setTempDate(undefined);
+            }
+          }}
           footer={calendarFooter}
           className="absolute top-full left-0 z-50 mt-2 rounded-xl border border-gray-200 bg-white p-4 shadow-lg"
         />

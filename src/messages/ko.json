@@ -23,6 +23,9 @@
       "pm": "오후",
       "reset": "초기화",
       "confirm": "확인"
+    },
+    "gatheringCard": {
+      "canceled": "취소된 모임이에요!"
     }
   },
   "navigation": {
@@ -126,6 +129,7 @@
           "image": "이미지",
           "imagePlaceholder": "이미지를 첨부해주세요",
           "imageButton": "파일 찾기",
+          "imageSuccess": "이미지 파일 업로드 성공",
           "type": "선택 서비스",
           "date": "모임 날짜",
           "datePlaceholder": "모임 날짜를 선택해주세요",
@@ -162,7 +166,8 @@
             "registrationEndRequired": "모집 마감일을 선택해주세요",
             "registrationEndInvalid": "모집 마감일은 모임 날짜보다 이전이어야 합니다",
             "capacityMin": "최소 5인 이상 입력해주세요",
-            "imageType": "이미지 파일만 업로드 가능합니다"
+            "imageType": "이미지 파일만 업로드 가능합니다",
+            "imageEmpty": "이미지 파일이 비어있습니다"
           }
         }
       }
@@ -177,7 +182,72 @@
       }
     },
     "myPage": {
-      "title": "마이페이지"
+      "title": "마이페이지",
+      "profile": {
+        "title": "내 프로필",
+        "edit": "프로필 수정",
+        "editButton": "수정",
+        "name": "이름",
+        "company": "회사",
+        "email": "이메일",
+        "emailReadOnly": "이메일은 수정할 수 없습니다"
+      },
+      "tabs": {
+        "joinedGatherings": "나의 모임",
+        "createdGatherings": "내가 만든 모임",
+        "reviews": "나의 리뷰",
+        "writableReviews": "작성 가능한 리뷰"
+      },
+      "gatherings": {
+        "noJoinedGatherings": "참여한 모임이 없습니다",
+        "noCreatedGatherings": "만든 모임이 없습니다",
+        "cancelButton": "취소",
+        "cancelConfirm": "정말 취소하시겠습니까?",
+        "cancelSuccess": "모임 참여가 취소되었습니다",
+        "cancelError": "모임 취소에 실패했습니다"
+      },
+      "reviews": {
+        "noWritableReviews": "작성 가능한 리뷰가 없습니다",
+        "noWrittenReviews": "작성한 리뷰가 없습니다",
+        "writeReview": "리뷰 작성",
+        "rating": "평점",
+        "comment": "코멘트",
+        "commentPlaceholder": "리뷰를 작성해주세요",
+        "submit": "리뷰 등록",
+        "submitSuccess": "리뷰가 등록되었습니다",
+        "submitError": "리뷰 등록에 실패했습니다"
+      },
+      "form": {
+        "companyName": "회사명",
+        "companyNamePlaceholder": "회사명을 입력해주세요",
+        "profileImage": "프로필 이미지",
+        "imagePlaceholder": "이미지를 선택해주세요",
+        "imageButton": "이미지 선택",
+        "cancel": "취소",
+        "submit": "수정 완료",
+        "submitting": "수정 중...",
+        "errors": {
+          "companyNameRequired": "회사명을 입력해주세요",
+          "imageRequired": "프로필 이미지를 선택해주세요",
+          "imageType": "올바른 이미지 파일을 선택해주세요"
+        }
+      },
+      "actionButton": {
+        "cancelReservation": "예약 취소하기",
+        "writeReview": "리뷰 작성하기"
+      },
+      "reviewModal": {
+        "title": "리뷰 쓰기",
+        "question": "만족스러운 경험이었나요?",
+        "ariaLabel": "{score}점",
+        "commentLabel": "경험에 대해 남겨주세요.",
+        "commentPlaceholder": "남겨주신 리뷰는 프로그램 운영 및 다른 회원 분들께 큰 도움이 됩니다.",
+        "commentHelpText": "남겨주신 리뷰는 프로그램 운영 및 다른 회원 분들께 큰 도움이 됩니다.",
+        "cancel": "취소",
+        "submit": "리뷰 등록",
+        "selectRatingError": "평점을 선택해주세요",
+        "success": "리뷰가 성공적으로 작성되었습니다!"
+      }
     },
     "reviews": {
       "title": "모든 리뷰",

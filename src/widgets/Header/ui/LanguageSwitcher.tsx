@@ -1,8 +1,9 @@
 'use client';
 
 import { useTransition } from 'react';
+import type { Locale } from 'next-intl';
 import { useLocale } from 'next-intl';
-import { type Locale, routing, usePathname, useRouter } from '@/i18n';
+import { routing, usePathname, useRouter } from '@/i18n';
 import { Dropdown, DropdownItem, DropdownList, DropdownTrigger } from '@/shared/ui/dropdown';
 import { LanguageIcon } from '@/shared/ui/icon/icons/LanguageIcon';
 

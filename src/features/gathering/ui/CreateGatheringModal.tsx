@@ -19,7 +19,9 @@ export const CreateGatheringModal = ({ isOpen, onClose }: CreateGatheringModalPr
       variant="form"
     >
       <Modal.Header>{t('title')}</Modal.Header>
-      <CreateGatheringForm onClose={onClose} />
+      <Modal.Body>
+        <CreateGatheringForm onClose={onClose} />
+      </Modal.Body>
     </Modal.Root>
   );
 };

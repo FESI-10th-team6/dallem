@@ -28,7 +28,15 @@ axiosInstance.interceptors.request.use((config) => {
 
     Object.entries(config.data || {}).forEach(([key, value]) => {
       if (value == null) return;
-      formData.append(key, value instanceof File ? value : String(value));
+
+      // Date 객체를 ISO 형식으로 변환
+      if (value instanceof Date) {
+        formData.append(key, value.toISOString());
+      } else if (value instanceof File) {
+        formData.append(key, value);
+      } else {
+        formData.append(key, String(value));
+      }
     });
 
     config.data = formData;

@@ -46,6 +46,7 @@ export const useLeaveGathering = () => {
     onSuccess: (_, gatheringId) => {
       toast.success('모임 참여를 취소했습니다.');
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.gathering.detail(gatheringId) });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.gathering.base });
     },
     onError: (error) => {
       console.error(error);

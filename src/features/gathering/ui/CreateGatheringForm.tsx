@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCreateGathering } from '@/entities/gathering/api/queries';
-import {
-  CreateGatheringFormValues,
-  createGatheringSchema,
-} from '@/features/gathering/model/createGatheringSchema';
+import { CreateGatheringPayload, createGatheringSchema } from '@/entities/gathering/model/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FieldError, useForm } from 'react-hook-form';
 import {
@@ -39,7 +36,7 @@ export const CreateGatheringForm = ({ onClose }: CreateGatheringFormProps) => {
     formState: { errors },
     watch,
     reset,
-  } = useForm<CreateGatheringFormValues>({
+  } = useForm<CreateGatheringPayload>({
     resolver: zodResolver(createGatheringSchema),
     defaultValues: {
       name: '',
@@ -52,7 +49,7 @@ export const CreateGatheringForm = ({ onClose }: CreateGatheringFormProps) => {
     },
   });
 
-  const onSubmit = (data: CreateGatheringFormValues) => {
+  const onSubmit = (data: CreateGatheringPayload) => {
     mutate(data, {
       onSuccess: () => {
         onClose();

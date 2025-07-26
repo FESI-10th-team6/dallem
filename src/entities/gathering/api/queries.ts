@@ -1,16 +1,21 @@
-import { CreateGatheringFormValues } from '@/features/gathering/model/createGatheringSchema';
+import type { CreateGatheringPayload } from '@/entities/gathering/model/schema';
+import type {
+  Gathering,
+  GatheringFilters,
+  MyGathering,
+  MyGatheringParams,
+} from '@/entities/gathering/model/types';
 import { ApiError } from '@/shared/api';
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { Gathering } from '../model/types';
-import { GatheringFilters } from '../model/types';
 import { QUERY_KEYS } from './queryKeys';
-import { createGathering, getGatherings } from './services';
+import { createGathering, getGatherings, getGatheringsJoined } from './services';
 
 // 모임 조회
-export const useGetGatherings = (filters?: GatheringFilters) => {
+export const useGetGatherings = (filters?: GatheringFilters, options?: { enabled?: boolean }) => {
   return useQuery<Gathering[]>({
     queryKey: QUERY_KEYS.gathering.list(filters),
     queryFn: () => getGatherings(filters),
+    enabled: options?.enabled ?? true,
   });
 };
 
@@ -35,10 +40,17 @@ export const useGetGatheringsInfinite = (filters?: Omit<GatheringFilters, 'limit
 // 모임 생성 훅
 export const useCreateGathering = () => {
   const queryClient = useQueryClient();
-  return useMutation<Gathering, ApiError, CreateGatheringFormValues>({
+  return useMutation<Gathering, ApiError, CreateGatheringPayload>({
     mutationFn: createGathering,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.gathering.base });
     },
+  });
+};
+
+export const useGetGatheringsJoined = (params?: MyGatheringParams) => {
+  return useQuery<MyGathering[]>({
+    queryKey: QUERY_KEYS.gathering.joined(params),
+    queryFn: () => getGatheringsJoined(params),
   });
 };

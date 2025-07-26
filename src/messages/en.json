@@ -23,6 +23,9 @@
       "pm": "PM",
       "reset": "Reset",
       "confirm": "Confirm"
+    },
+    "gatheringCard": {
+      "canceled": "This gathering has been canceled!"
     }
   },
   "navigation": {
@@ -126,6 +129,7 @@
           "image": "Image",
           "imagePlaceholder": "Attach image",
           "imageButton": "Find File",
+          "imageSuccess": "Image file upload successful",
           "type": "Select Service",
           "date": "Gathering Date",
           "datePlaceholder": "Select gathering date",
@@ -162,7 +166,8 @@
             "registrationEndRequired": "Please select the registration end date.",
             "registrationEndInvalid": "Registration deadline must be before the gathering date.",
             "capacityMin": "Please enter at least 5 participants.",
-            "imageType": "Only image files are allowed."
+            "imageType": "Only image files are allowed.",
+            "imageEmpty": "Image file is empty."
           }
         }
       }
@@ -177,7 +182,72 @@
       }
     },
     "myPage": {
-      "title": "My Page"
+      "title": "My Page",
+      "profile": {
+        "title": "My Profile",
+        "edit": "Edit Profile",
+        "editButton": "Edit",
+        "name": "Name",
+        "company": "Company",
+        "email": "Email",
+        "emailReadOnly": "Email cannot be modified"
+      },
+      "tabs": {
+        "joinedGatherings": "My Gatherings",
+        "createdGatherings": "Created Gatherings",
+        "reviews": "My Reviews",
+        "writableReviews": "Writable Reviews"
+      },
+      "gatherings": {
+        "noJoinedGatherings": "No joined gatherings",
+        "noCreatedGatherings": "No created gatherings",
+        "cancelButton": "Cancel",
+        "cancelConfirm": "Are you sure you want to cancel?",
+        "cancelSuccess": "Gathering participation has been cancelled",
+        "cancelError": "Failed to cancel gathering"
+      },
+      "reviews": {
+        "noWritableReviews": "No writable reviews",
+        "noWrittenReviews": "No written reviews",
+        "writeReview": "Write Review",
+        "rating": "Rating",
+        "comment": "Comment",
+        "commentPlaceholder": "Please write your review",
+        "submit": "Submit Review",
+        "submitSuccess": "Review has been submitted",
+        "submitError": "Failed to submit review"
+      },
+      "form": {
+        "companyName": "Company Name",
+        "companyNamePlaceholder": "Enter your company name",
+        "profileImage": "Profile Image",
+        "imagePlaceholder": "Select an image",
+        "imageButton": "Select Image",
+        "cancel": "Cancel",
+        "submit": "Update Complete",
+        "submitting": "Updating...",
+        "errors": {
+          "companyNameRequired": "Please enter your company name",
+          "imageRequired": "Please select a profile image",
+          "imageType": "Please select a valid image file"
+        }
+      },
+      "actionButton": {
+        "cancelReservation": "Cancel Reservation",
+        "writeReview": "Write Review"
+      },
+      "reviewModal": {
+        "title": "Write Review",
+        "question": "Was it a satisfactory experience?",
+        "ariaLabel": "{score} stars",
+        "commentLabel": "Please leave a comment about your experience.",
+        "commentPlaceholder": "Your review will be of great help to program operation and other members.",
+        "commentHelpText": "Your review will be of great help to program operation and other members.",
+        "cancel": "Cancel",
+        "submit": "Submit Review",
+        "selectRatingError": "Please select a rating",
+        "success": "Review submitted successfully!"
+      }
     },
     "reviews": {
       "title": "All Reviews",

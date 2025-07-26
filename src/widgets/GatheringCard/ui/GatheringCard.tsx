@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { GatheringDateTimeDisplay, GatheringDeadlineTag } from '@/entities/gathering/ui';
 import { GatheringJoinButton, GatheringLikeButton } from '@/features/gathering/ui';
@@ -34,6 +35,7 @@ export const GatheringCard = ({
   gatheringImage,
   isCanceled,
 }: GatheringCardProps) => {
+  const t = useTranslations('ui.gatheringCard');
   // 모임 참여자 수가 5명 이상이면 개설확정 칩 표시
   const isConfirmed = gatheringParticipantCount >= participantCountToConfirm;
 
@@ -109,7 +111,7 @@ export const GatheringCard = ({
       {isCanceled && (
         <div className="rounded-common absolute inset-0 flex items-center justify-center bg-black opacity-80">
           <div className="flex flex-col items-center gap-2 text-white">
-            <div className="text-lg font-medium">취소된 모임이에요!</div>
+            <div className="text-lg font-medium">{t('canceled')}</div>
           </div>
         </div>
       )}

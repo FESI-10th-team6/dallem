@@ -1,8 +1,9 @@
 // enums
 
 export type GatheringType = 'DALLAEMFIT' | 'OFFICE_STRETCHING' | 'MINDFULNESS' | 'WORKATION';
-
 export type GatheringLocation = '건대입구' | '을지로3가' | '신림' | '홍대입구';
+export type GatheringSortBy = 'dateTime' | 'registrationEnd' | 'participantCount';
+export type GatheringSortOrder = 'asc' | 'desc';
 
 // interfaces
 
@@ -39,8 +40,23 @@ export interface GatheringFilters {
   location?: GatheringLocation;
   date?: string; // YYYY-MM-DD
   createdBy?: number;
-  sortBy?: 'dateTime' | 'registrationEnd' | 'participantCount';
-  sortOrder?: 'asc' | 'desc';
+  sortBy?: GatheringSortBy;
+  sortOrder?: GatheringSortOrder;
+  limit?: number;
+  offset?: number;
+}
+
+export interface MyGathering extends Gathering {
+  joinedAt: string;
+  isCompleted: boolean;
+  isReviewed: boolean;
+}
+
+export interface MyGatheringParams {
+  completed?: boolean;
+  reviewed?: boolean;
+  sortBy?: GatheringSortBy;
+  sortOrder?: GatheringSortOrder;
   limit?: number;
   offset?: number;
 }

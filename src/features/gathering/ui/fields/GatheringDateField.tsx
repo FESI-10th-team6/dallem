@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import type { CreateGatheringFormValues } from '@/features/gathering/model';
+import type { CreateGatheringPayload } from '@/entities/gathering/model/schema';
 import { cn } from '@/shared/lib/cn';
 import { Calendar } from '@/shared/ui/calendar/Calendar';
 import { CalendarIcon } from '@/shared/ui/icon/icons/CalendarIcon';
@@ -7,14 +7,14 @@ import { TimePicker } from '@/shared/ui/time-picker';
 import { Control, Controller, FieldError, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
 interface GatheringDateFieldProps {
-  control: Control<CreateGatheringFormValues>;
+  control: Control<CreateGatheringPayload>;
   error?: FieldError;
   showDatePicker: boolean;
   setShowDatePicker: (v: boolean) => void;
   currentDateField: 'dateTime' | 'registrationEnd' | null;
   setCurrentDateField: (v: 'dateTime' | 'registrationEnd' | null) => void;
-  setValue: UseFormSetValue<CreateGatheringFormValues>;
-  watch: UseFormWatch<CreateGatheringFormValues>;
+  setValue: UseFormSetValue<CreateGatheringPayload>;
+  watch: UseFormWatch<CreateGatheringPayload>;
   formatDateTime: (date: Date | undefined) => string;
   formatDateTimeMobile: (date: Date | undefined) => string;
 }
