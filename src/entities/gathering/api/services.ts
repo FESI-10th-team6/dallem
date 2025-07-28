@@ -37,6 +37,7 @@ export const getGatherings = async (filters?: GatheringFilters): Promise<Gatheri
 export const createGathering = async (newGathering: CreateGatheringPayload): Promise<Gathering> => {
   return await httpClient.post<Gathering>(API_ENDPOINTS.GATHERINGS.CREATE, newGathering, {
     headers: { 'Content-Type': 'multipart/form-data' },
+    authRequired: true,
   });
 };
 
