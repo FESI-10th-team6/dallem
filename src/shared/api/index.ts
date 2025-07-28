@@ -1,4 +1,5 @@
-export { httpClient } from './httpClient';
+export { httpClient } from './client/httpClient';
+export { createServerHttpClient } from './server/httpClient';
 export { ApiError } from './apiError';
 
 export { createQueryClient, enableReactQueryDevTools } from './query/client';

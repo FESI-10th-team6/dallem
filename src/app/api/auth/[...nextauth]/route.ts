@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 // import { decode as jwtDecode, encode as jwtEncode } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { signinApi, signoutApi } from '@/entities/auth/api/services';
-import { TEST_TEAM_ID } from '@/shared/api/httpClient';
+import { TEST_TEAM_ID } from '@/shared/api/server/httpClient';
 import { API_CONFIG, API_ENDPOINTS } from '@/shared/config';
 
 const handler = NextAuth({
