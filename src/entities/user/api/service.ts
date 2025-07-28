@@ -3,9 +3,9 @@ import { httpClient } from '@/shared/api';
 import { API_ENDPOINTS } from '@/shared/config';
 
 export const getUser = async (): Promise<User> => {
-  return await httpClient.get<User>(API_ENDPOINTS.AUTH.USER);
+  return await httpClient.get<User>(API_ENDPOINTS.AUTH.USER, { authRequired: true });
 };
 
 export const updateUser = async (payload: UpdateUserPayload): Promise<User> => {
-  return await httpClient.put<User>(API_ENDPOINTS.AUTH.USER, payload);
+  return await httpClient.put<User>(API_ENDPOINTS.AUTH.USER, payload, { authRequired: true });
 };
