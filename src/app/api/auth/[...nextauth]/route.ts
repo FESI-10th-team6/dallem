@@ -24,7 +24,6 @@ const handler = NextAuth({
             return null;
           }
 
-          console.log({ credentials, res });
           return {
             id: credentials.email,
             email: credentials.email,
