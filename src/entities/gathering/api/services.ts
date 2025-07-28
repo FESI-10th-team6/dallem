@@ -41,5 +41,7 @@ export const createGathering = async (newGathering: CreateGatheringPayload): Pro
 };
 
 export const getGatheringsJoined = async (params?: MyGatheringParams): Promise<MyGathering[]> => {
-  return await httpClient.get<MyGathering[]>(API_ENDPOINTS.GATHERINGS.JOINED, { params });
+  return await httpClient.get<MyGathering[]>(API_ENDPOINTS.GATHERINGS.JOINED, {
+    params,
+  });
 };
