@@ -39,7 +39,7 @@ export const AuthForm = <T extends FieldValues>({
       </div>
       <Button
         type="submit"
-        className="mt-3 w-full rounded-xl py-2.5 text-white transition"
+        className="mt-3 w-full rounded-xl py-2.5 transition"
         variant={isValid ? 'primary' : 'default'}
       >
         {t(meta.buttonLabel)}
