@@ -80,7 +80,7 @@ export const MobileGNB = () => {
             <XIcon className="h-6 w-6 cursor-pointer" />
           </button>
         </div>
-        <ul className="flex flex-col gap-4 p-4 text-center">
+        <ul className="flex flex-col gap-8 p-4 text-center">
           {menuItems.map((item) => (
             <li key={item.href}>
               <HeaderLink
